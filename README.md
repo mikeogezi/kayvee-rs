@@ -3,7 +3,7 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
 
 ## Methods
 + ### PUT
-  ```json
+  ```graphql
     mutation {
       put("name", "Michæl") {
         status
@@ -23,7 +23,7 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
   ```
 
 + ### GET
-  ```json
+  ```graphql
     query {
       get("name")
     }
@@ -37,7 +37,7 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
   ```
 
 + ### DELETE
-  ```json
+  ```graphql
     mutation {
       delete("name") {
         status

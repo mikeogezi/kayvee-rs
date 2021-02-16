@@ -19,11 +19,7 @@ use crate::schema::{create_schema, Schema};
 use crate::store::Store;
 
 async fn graphiql() -> HttpResponse {
-    let endpoint: String;
-    unsafe {
-        endpoint = format!("//0.0.0.0:{}/graphql", PORT);
-    }
-    let html = graphiql_source(endpoint.as_str());
+    let html = graphiql_source("/graphql");
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(html)

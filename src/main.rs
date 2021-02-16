@@ -21,7 +21,7 @@ use crate::store::Store;
 async fn graphiql() -> HttpResponse {
     let endpoint: String;
     unsafe {
-        endpoint = format!("//127.0.0.1:{}/graphql", PORT);
+        endpoint = format!("//0.0.0.0:{}/graphql", PORT);
     }
     let html = graphiql_source(endpoint.as_str());
     HttpResponse::Ok()
@@ -86,7 +86,7 @@ async fn main() -> io::Result<()> {
             .service(web::resource("/graphiql").route(web::get().to(graphiql)))
     });
 
-    let bind_result = factory.bind(format!("127.0.0.1:{}", port).as_str());
+    let bind_result = factory.bind(format!("0.0.0.0:{}", port).as_str());
 
     if bind_result.is_ok() {
         println!(

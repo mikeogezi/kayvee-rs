@@ -1,5 +1,5 @@
 # Kayvee-rs
-Kayvee is an in-memory key-value store written in Rust. It implements three methods: `GET`, `PUT`, and `DELETE` all of which are accessible via it's GraphQL endpoint.
+Kayvee is an in-memory key-value store written in Rust. It implements three methods: `GET`, `PUT`, and `DELETE` all of which are accessible via it's [GraphQL](https://kayvee.herokuapp.com/graphiql) endpoint.
 
 ## Methods
 + ### PUT
@@ -51,3 +51,6 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
       }
     }
   ```
+
+## Note
+If you want to replicate this, remember to use the Heroku Rust buildpack here: https://github.com/emk/heroku-buildpack-rust.

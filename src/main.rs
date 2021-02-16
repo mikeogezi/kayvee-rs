@@ -21,7 +21,7 @@ use crate::store::Store;
 async fn graphiql() -> HttpResponse {
     let endpoint: String;
     unsafe {
-        endpoint = format!("http://localhost:{}/graphql", PORT);
+        endpoint = format!("//127.0.0.1:{}/graphql", PORT);
     }
     let html = graphiql_source(endpoint.as_str());
     HttpResponse::Ok()
@@ -86,10 +86,13 @@ async fn main() -> io::Result<()> {
             .service(web::resource("/graphiql").route(web::get().to(graphiql)))
     });
 
-    let bind_result = factory.bind(format!("localhost:{}", port).as_str());
+    let bind_result = factory.bind(format!("127.0.0.1:{}", port).as_str());
 
     if bind_result.is_ok() {
-        println!("The Kayvee service started successfully");
+        println!(
+            "The Kayvee service started successfully. It's running on port {}",
+            port
+        );
     } else {
         println!("Couldn't start the Kayvee service")
     }

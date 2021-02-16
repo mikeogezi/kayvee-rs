@@ -5,7 +5,7 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
 + ### PUT
   ```graphql
     mutation {
-      put("name", "Michæl") {
+      put(key: "name", value: "Michæl") {
         success
       }
     }
@@ -23,7 +23,7 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
 + ### GET
   ```graphql
     query {
-      get("name")
+      get(key: "name")
     }
   ```
   ```json
@@ -37,7 +37,7 @@ Kayvee is an in-memory key-value store written in Rust. It implements three meth
 + ### DELETE
   ```graphql
     mutation {
-      delete("name") {
+      delete(key: "name") {
         success
       }
     }
